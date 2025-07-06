@@ -15,10 +15,10 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center p-4">
       <div className="text-center max-w-md">
         <div className="mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-education-600">
+          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-slate-700">
             <GraduationCap className="h-10 w-10" />
             <span className="font-display">EduAI</span>
           </Link>
@@ -35,7 +35,7 @@ const NotFound = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild className="education-gradient">
+          <Button asChild className="bg-slate-600 hover:bg-slate-700 text-white">
             <Link to="/" className="flex items-center space-x-2">
               <Home className="h-4 w-4" />
               <span>Voltar ao Início</span>

@@ -100,10 +100,6 @@
   .gradient-bg {
     background: linear-gradient(135deg, #64748b 0%, #475569 100%);
   }
-
-  .education-gradient {
-    background: linear-gradient(135deg, #64748b 0%, #22c55e 100%);
-  }
 }
 
 /* Animações suaves */
