@@ -45,14 +45,14 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-education-600">
+          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-slate-700">
             <GraduationCap className="h-10 w-10" />
             <span className="font-display">EduAI</span>
           </Link>
-          <p className="text-gray-600 mt-2">Entre na sua conta</p>
+          <p className="text-slate-600 mt-2">Entre na sua conta</p>
         </div>
 
         <Card className="border-0 shadow-xl">
@@ -106,7 +106,7 @@ const Login = () => {
 
               <Button 
                 type="submit" 
-                className="w-full education-gradient hover:opacity-90 transition-opacity"
+                className="w-full bg-slate-600 hover:bg-slate-700 text-white transition-colors"
                 disabled={isLoading}
               >
                 {isLoading ? 'Entrando...' : 'Entrar'}
@@ -143,7 +143,7 @@ const Login = () => {
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Não tem uma conta?{' '}
-                <Link to="/register" className="text-education-600 hover:underline font-medium">
+                <Link to="/register" className="text-slate-600 hover:underline font-medium">
                   Criar conta gratuita
                 </Link>
               </p>
