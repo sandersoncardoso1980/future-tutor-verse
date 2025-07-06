@@ -53,19 +53,19 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Cores educacionais personalizadas (sem amarelo)
+				// Cores educacionais neutras
 				education: {
-					50: '#f0f9ff',
-					100: '#e0f2fe',
-					500: '#0ea5e9',
-					600: '#0284c7',
-					700: '#0369a1',
+					50: 'hsl(220, 14%, 96%)',
+					100: 'hsl(220, 13%, 91%)',
+					500: 'hsl(217, 19%, 35%)',
+					600: 'hsl(217, 19%, 27%)',
+					700: 'hsl(217, 19%, 20%)',
 				},
 				success: {
-					50: '#f0fdf4',
-					100: '#dcfce7',
-					500: '#22c55e',
-					600: '#16a34a',
+					50: 'hsl(138, 76%, 97%)',
+					100: 'hsl(140, 84%, 92%)',
+					500: 'hsl(142, 71%, 45%)',
+					600: 'hsl(142, 76%, 36%)',
 				}
 			},
 			borderRadius: {
