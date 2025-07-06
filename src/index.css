@@ -90,7 +90,7 @@
   }
   
   .chat-bubble-user {
-    @apply bg-education-500 text-white ml-auto;
+    @apply bg-blue-500 text-white ml-auto;
   }
   
   .chat-bubble-ai {

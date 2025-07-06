@@ -53,7 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Cores educacionais personalizadas
+				// Cores educacionais personalizadas (sem amarelo)
 				education: {
 					50: '#f0f9ff',
 					100: '#e0f2fe',
@@ -97,7 +97,7 @@ export default {
 					},
 					'100%': {
 						opacity: '1',
-						transform: 'translateY(0)'
+						transform: 'translateX(0)'
 					}
 				},
 				'slide-in': {

@@ -5,8 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
 import ChatMessage from '@/components/ChatMessage';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Send, ArrowLeft, BookOpen } from 'lucide-react';
 import { subjects, generateAIResponse } from '@/data/subjects';
@@ -78,9 +77,9 @@ const Chat = () => {
     setInputMessage('');
     setIsTyping(true);
 
-    // Simular delay de resposta da IA
-    setTimeout(() => {
-      const aiResponse = generateAIResponse(inputMessage, subjectId || 'default');
+    try {
+      // Usar a API do Gemini
+      const aiResponse = await generateAIResponse(inputMessage, subjectId || 'default');
       
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -91,8 +90,21 @@ const Chat = () => {
       };
 
       setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error('Erro ao gerar resposta:', error);
+      toast.error('Erro ao processar sua pergunta. Tente novamente.');
+      
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: 'Desculpe, houve um erro ao processar sua pergunta. Por favor, tente novamente.',
+        sender: 'ai',
+        timestamp: new Date(),
+      };
+      
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -123,7 +135,7 @@ const Chat = () => {
             </Button>
             
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-education-50 text-education-600">
+              <div className="p-2 rounded-lg bg-blue-50 text-blue-600">
                 {subject.icon}
               </div>
               <div>
@@ -164,7 +176,7 @@ const Chat = () => {
                   <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
               </div>
-              <span className="text-sm text-gray-500">Professor está digitando...</span>
+              <span className="text-sm text-gray-500">Professor está pensando...</span>
             </div>
           )}
           
@@ -177,19 +189,20 @@ const Chat = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="flex items-end space-x-4">
             <div className="flex-1">
-              <Input
+              <Textarea
                 placeholder={`Faça uma pergunta sobre ${subject.name}...`}
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 disabled={isTyping}
-                className="min-h-[44px] resize-none"
+                className="min-h-[44px] resize-none border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                rows={1}
               />
             </div>
             <Button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim() || isTyping}
-              className="education-gradient hover:opacity-90 transition-opacity px-6"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-6"
             >
               <Send className="h-4 w-4" />
             </Button>
@@ -200,7 +213,7 @@ const Chat = () => {
               Pressione Enter para enviar, Shift + Enter para nova linha
             </span>
             <span>
-              Respostas baseadas em {subject.booksCount} livros acadêmicos
+              Powered by Gemini AI • {subject.booksCount} livros acadêmicos
             </span>
           </div>
         </div>

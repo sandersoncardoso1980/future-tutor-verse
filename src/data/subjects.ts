@@ -1,5 +1,6 @@
 
 import { Calculator, Atom, Globe, BookOpen, Palette, Music } from 'lucide-react';
+import { generateGeminiResponse, type GeminiResponse } from '@/services/geminiService';
 
 export const subjects = [
   {
@@ -103,28 +104,16 @@ export const getSubjectIcon = (iconName: string) => {
   return IconComponent;
 };
 
-// Respostas simuladas de IA para demonstração
-export const generateAIResponse = (question: string, subjectId: string): {
-  content: string;
-  source: { book: string; chapter: string };
-} => {
+// Nova função que usa a API do Gemini
+export const generateAIResponse = async (question: string, subjectId: string): Promise<GeminiResponse> => {
   const subject = subjects.find(s => s.id === subjectId);
-  const book = subject?.books[0] || { name: 'Livro de Referência', author: 'Autor' };
   
-  const responses = {
-    mathematics: {
-      content: `Ótima pergunta sobre matemática! Com base no meu conhecimento especializado, posso explicar que ${question.toLowerCase().includes('derivada') ? 'a derivada representa a taxa de variação instantânea de uma função' : question.toLowerCase().includes('integral') ? 'a integral representa a área sob uma curva ou o processo inverso da derivação' : 'este conceito matemático tem aplicações importantes no dia a dia'}.\n\nVou detalhar o passo a passo:\n\n1. Primeiro, identificamos os elementos principais\n2. Aplicamos as fórmulas ou teoremas relevantes\n3. Resolvemos sistematicamente\n4. Verificamos o resultado\n\nGostaria que eu explique algum passo específico com mais detalhes?`,
-      source: { book: book.name, chapter: 'Capítulo 3 - Fundamentos' }
-    },
-    physics: {
-      content: `Excelente pergunta de física! Este conceito está bem explicado na literatura especializada. ${question.toLowerCase().includes('força') ? 'As forças são grandezas vetoriais que podem alterar o estado de movimento ou repouso de um corpo' : question.toLowerCase().includes('energia') ? 'A energia é a capacidade de realizar trabalho e pode ser transformada, mas nunca destruída' : 'Este princípio físico é fundamental para compreender como o universo funciona'}.\n\nOs pontos principais são:\n\n• Definição e conceitos fundamentais\n• Leis e princípios aplicáveis\n• Exemplos práticos do cotidiano\n• Aplicações tecnológicas\n\nPrecisa de mais esclarecimentos sobre algum aspecto específico?`,
-      source: { book: book.name, chapter: 'Capítulo 5 - Mecânica' }
-    },
-    default: {
-      content: `Obrigado pela sua pergunta! Como especialista nesta disciplina, posso te ajudar com uma explicação completa.\n\n${question.length > 50 ? 'Sua pergunta é bem específica e' : 'Este é um tópico importante que'} está diretamente relacionado aos conceitos fundamentais da matéria.\n\nVou organizar a resposta em tópicos:\n\n1. **Conceito principal**: A base teórica é essencial\n2. **Aplicação prática**: Como usar no dia a dia\n3. **Exemplos**: Situações reais onde isso se aplica\n4. **Dicas de estudo**: Como fixar melhor o conteúdo\n\nTem alguma parte específica que gostaria que eu aprofunde mais?`,
-      source: { book: book.name, chapter: 'Capítulo 1 - Introdução' }
-    }
-  };
+  if (!subject) {
+    return {
+      content: 'Disciplina não encontrada. Por favor, selecione uma disciplina válida.',
+      source: { book: 'Sistema EduAI', chapter: 'Erro de Sistema' }
+    };
+  }
 
-  return responses[subjectId as keyof typeof responses] || responses.default;
+  return await generateGeminiResponse(question, subjectId, subject.name, subject.specialties);
 };
