@@ -6,7 +6,7 @@ export const subjects = [
     id: 'mathematics',
     name: 'Matemática',
     description: 'Álgebra, geometria, cálculo e muito mais com explicações detalhadas',
-    icon: <Calculator className="h-6 w-6" />,
+    icon: 'Calculator',
     studentsCount: 1247,
     booksCount: 8,
     averageResponseTime: '< 30s',
@@ -20,7 +20,7 @@ export const subjects = [
     id: 'physics',
     name: 'Física',
     description: 'Mecânica, termodinâmica, eletromagnetismo e física moderna',
-    icon: <Atom className="h-6 w-6" />,
+    icon: 'Atom',
     studentsCount: 892,
     booksCount: 6,
     averageResponseTime: '< 45s',
@@ -34,7 +34,7 @@ export const subjects = [
     id: 'chemistry',
     name: 'Química',
     description: 'Química orgânica, inorgânica, físico-química e bioquímica',
-    icon: <Globe className="h-6 w-6" />,
+    icon: 'Globe',
     studentsCount: 756,
     booksCount: 7,
     averageResponseTime: '< 40s',
@@ -48,7 +48,7 @@ export const subjects = [
     id: 'biology',
     name: 'Biologia',
     description: 'Citologia, genética, ecologia e evolução explicadas de forma clara',
-    icon: <BookOpen className="h-6 w-6" />,
+    icon: 'BookOpen',
     studentsCount: 634,
     booksCount: 5,
     averageResponseTime: '< 35s',
@@ -62,7 +62,7 @@ export const subjects = [
     id: 'history',
     name: 'História',
     description: 'História do Brasil, mundial, antiga e contemporânea',
-    icon: <BookOpen className="h-6 w-6" />,
+    icon: 'BookOpen',
     studentsCount: 543,
     booksCount: 9,
     averageResponseTime: '< 25s',
@@ -76,7 +76,7 @@ export const subjects = [
     id: 'arts',
     name: 'Artes',
     description: 'História da arte, técnicas de desenho, pintura e expressão artística',
-    icon: <Palette className="h-6 w-6" />,
+    icon: 'Palette',
     studentsCount: 321,
     booksCount: 4,
     averageResponseTime: '< 20s',
@@ -87,6 +87,21 @@ export const subjects = [
     ]
   }
 ];
+
+// Função para obter o ícone correto baseado no nome
+export const getSubjectIcon = (iconName: string) => {
+  const icons = {
+    Calculator,
+    Atom,
+    Globe,
+    BookOpen,
+    Palette,
+    Music
+  };
+  
+  const IconComponent = icons[iconName as keyof typeof icons] || BookOpen;
+  return IconComponent;
+};
 
 // Respostas simuladas de IA para demonstração
 export const generateAIResponse = (question: string, subjectId: string): {
