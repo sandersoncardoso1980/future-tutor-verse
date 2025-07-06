@@ -66,11 +66,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const foundUser = MOCK_USERS.find(u => u.email === email && u.password === password);
     
     if (foundUser) {
-      const userData = {
+      const userData: User = {
         id: foundUser.id,
         email: foundUser.email,
         name: foundUser.name,
-        role: foundUser.role
+        role: foundUser.role as 'student' | 'admin'
       };
       setUser(userData);
       localStorage.setItem('eduai_user', JSON.stringify(userData));
@@ -96,11 +96,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
     
     // Criar novo usuário
-    const newUser = {
+    const newUser: User = {
       id: Date.now().toString(),
       email,
       name,
-      role: 'student' as const
+      role: 'student'
     };
     
     MOCK_USERS.push({ ...newUser, password });
