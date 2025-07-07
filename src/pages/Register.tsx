@@ -47,14 +47,14 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-slate-700">
+          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-gray-700">
             <GraduationCap className="h-10 w-10" />
             <span className="font-display">EduAI</span>
           </Link>
-          <p className="text-slate-600 mt-2">Crie sua conta gratuita</p>
+          <p className="text-gray-600 mt-2">Crie sua conta gratuita</p>
         </div>
 
         <Card className="border-0 shadow-xl">
@@ -140,7 +140,7 @@ const Register = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-slate-600 hover:bg-slate-700 text-white transition-colors"
+                className="w-full bg-gray-600 hover:bg-gray-700 text-white transition-colors"
                 disabled={isLoading}
               >
                 {isLoading ? 'Criando conta...' : 'Criar Conta Gratuita'}
@@ -150,7 +150,7 @@ const Register = () => {
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Já tem uma conta?{' '}
-                <Link to="/login" className="text-slate-600 hover:underline font-medium">
+                <Link to="/login" className="text-gray-600 hover:underline font-medium">
                   Fazer login
                 </Link>
               </p>
@@ -158,11 +158,11 @@ const Register = () => {
 
             <div className="mt-4 text-xs text-center text-gray-500">
               Ao criar uma conta, você concorda com nossos{' '}
-              <Link to="/" className="text-slate-600 hover:underline">
+              <Link to="/" className="text-gray-600 hover:underline">
                 Termos de Uso
               </Link>{' '}
               e{' '}
-              <Link to="/" className="text-slate-600 hover:underline">
+              <Link to="/" className="text-gray-600 hover:underline">
                 Política de Privacidade
               </Link>
             </div>

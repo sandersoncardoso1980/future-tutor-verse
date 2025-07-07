@@ -52,17 +52,17 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       <Header />
       
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <Badge className="mb-6 px-4 py-2 text-sm font-medium bg-slate-600 text-white">
+          <Badge className="mb-6 px-4 py-2 text-sm font-medium bg-gray-600 text-white">
             🚀 Revolução na Educação com IA
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold font-display mb-6 bg-gradient-to-r from-slate-700 to-slate-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold font-display mb-6 bg-gradient-to-r from-gray-700 to-gray-600 bg-clip-text text-transparent">
             Professores Particulares
             <br />
             <span className="text-4xl md:text-6xl">com Inteligência Artificial</span>
@@ -74,7 +74,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" asChild className="text-lg px-8 py-6 bg-slate-600 hover:bg-slate-700 text-white">
+            <Button size="lg" asChild className="text-lg px-8 py-6 bg-gray-600 hover:bg-gray-700 text-white">
               <Link to="/register" className="flex items-center space-x-2">
                 <span>Começar Gratuitamente</span>
                 <ArrowRight className="h-5 w-5" />
@@ -107,7 +107,7 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4 text-slate-800">
+            <h2 className="text-4xl font-bold font-display mb-4 text-gray-800">
               Por que escolher a EduAI?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -119,10 +119,10 @@ const Index = () => {
             {features.map((feature, index) => (
               <Card key={index} className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow group">
                 <CardHeader>
-                  <div className="mx-auto p-4 rounded-full bg-slate-100 text-slate-600 group-hover:bg-slate-200 transition-colors w-fit">
+                  <div className="mx-auto p-4 rounded-full bg-gray-100 text-gray-600 group-hover:bg-gray-200 transition-colors w-fit">
                     {feature.icon}
                   </div>
-                  <CardTitle className="text-xl font-display text-slate-800">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl font-display text-gray-800">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-gray-600">
@@ -139,7 +139,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4 text-slate-800">
+            <h2 className="text-4xl font-bold font-display mb-4 text-gray-800">
               Como funciona?
             </h2>
             <p className="text-xl text-gray-600">
@@ -167,10 +167,10 @@ const Index = () => {
                 }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-slate-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full bg-gray-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-slate-800">{item.title}</h3>
+                  <h3 className="text-xl font-bold mb-2 text-gray-800">{item.title}</h3>
                   <p className="text-gray-600">{item.description}</p>
                 </div>
               ))}
@@ -183,7 +183,7 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4 text-slate-800">
+            <h2 className="text-4xl font-bold font-display mb-4 text-gray-800">
               O que nossos alunos dizem
             </h2>
             <p className="text-xl text-gray-600">
@@ -206,7 +206,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div>
-                    <p className="font-semibold text-slate-800">{testimonial.name}</p>
+                    <p className="font-semibold text-gray-800">{testimonial.name}</p>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>
                   </div>
                 </CardContent>
@@ -217,18 +217,18 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-slate-600 text-white">
+      <section className="py-20 bg-gray-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
               Pronto para revolucionar seus estudos?
             </h2>
-            <p className="text-xl mb-8 text-slate-200">
+            <p className="text-xl mb-8 text-gray-200">
               Junte-se a milhares de estudantes que já descobriram uma nova forma de aprender
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6 bg-white text-slate-600 hover:bg-gray-100">
+              <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6 bg-white text-gray-600 hover:bg-gray-100">
                 <Link to="/register" className="flex items-center space-x-2">
                   <span>Criar Conta Gratuita</span>
                   <ArrowRight className="h-5 w-5" />
@@ -236,7 +236,7 @@ const Index = () => {
               </Button>
             </div>
             
-            <p className="text-sm text-slate-300 mt-6">
+            <p className="text-sm text-gray-300 mt-6">
               ✓ Sem cartão de crédito • ✓ Acesso imediato • ✓ Suporte 24/7
             </p>
           </div>
