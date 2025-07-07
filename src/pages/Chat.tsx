@@ -135,13 +135,13 @@ const Chat = () => {
             </Button>
             
             <div className="flex items-center space-x-3">
-              <div className="p-2 rounded-lg bg-blue-50 text-blue-600">
+              <div className="p-2 rounded-lg bg-slate-100 text-slate-600">
                 {subject.icon}
               </div>
               <div>
-                <h1 className="text-xl font-bold font-display">{subject.name}</h1>
+                <h1 className="text-xl font-bold font-display text-slate-800">{subject.name}</h1>
                 <div className="flex items-center space-x-2 text-sm text-gray-500">
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="text-xs bg-gray-100 text-gray-700">
                     {subject.booksCount} livros
                   </Badge>
                   <span>•</span>
@@ -195,14 +195,14 @@ const Chat = () => {
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 disabled={isTyping}
-                className="min-h-[44px] resize-none border-gray-300 focus:border-blue-500 focus:ring-blue-500"
+                className="min-h-[44px] resize-none border-gray-300 focus:border-slate-500 focus:ring-slate-500"
                 rows={1}
               />
             </div>
             <Button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim() || isTyping}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6"
+              className="bg-slate-600 hover:bg-slate-700 text-white px-6"
             >
               <Send className="h-4 w-4" />
             </Button>
