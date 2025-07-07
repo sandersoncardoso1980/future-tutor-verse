@@ -73,7 +73,7 @@ const Dashboard = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold font-display mb-2">
+          <h1 className="text-3xl font-bold font-display mb-2 text-slate-800">
             Olá, {user.name}! 👋
           </h1>
           <p className="text-gray-600">
@@ -84,17 +84,17 @@ const Dashboard = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {stats.map((stat, index) => (
-            <Card key={index} className="border-0 shadow-md">
+            <Card key={index} className="border-0 shadow-md bg-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-2">
-                  <div className="p-2 rounded-lg bg-education-50 text-education-600">
+                  <div className="p-2 rounded-lg bg-slate-100 text-slate-600">
                     {stat.icon}
                   </div>
-                  <Badge variant="secondary" className="text-xs">
+                  <Badge variant="secondary" className="text-xs bg-gray-100 text-gray-700">
                     {stat.change}
                   </Badge>
                 </div>
-                <h3 className="text-2xl font-bold">{stat.value}</h3>
+                <h3 className="text-2xl font-bold text-slate-800">{stat.value}</h3>
                 <p className="text-sm text-gray-600">{stat.label}</p>
               </CardContent>
             </Card>
@@ -104,7 +104,7 @@ const Dashboard = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Available Subjects */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold font-display mb-6">
+            <h2 className="text-2xl font-bold font-display mb-6 text-slate-800">
               Professores Disponíveis
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -116,10 +116,10 @@ const Dashboard = () => {
 
           {/* Recent Activity */}
           <div className="space-y-6">
-            <Card className="border-0 shadow-md">
+            <Card className="border-0 shadow-md bg-white">
               <CardHeader>
-                <CardTitle className="font-display">Conversas Recentes</CardTitle>
-                <CardDescription>
+                <CardTitle className="font-display text-slate-800">Conversas Recentes</CardTitle>
+                <CardDescription className="text-gray-600">
                   Suas últimas interações com os professores IA
                 </CardDescription>
               </CardHeader>
@@ -127,7 +127,7 @@ const Dashboard = () => {
                 {recentChats.map((chat, index) => (
                   <div key={index} className="p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer">
                     <div className="flex items-start justify-between mb-2">
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant="outline" className="text-xs border-gray-300 text-gray-700">
                         {chat.subject}
                       </Badge>
                       <span className="text-xs text-gray-500">{chat.time}</span>
@@ -140,14 +140,14 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-md education-gradient text-white">
+            <Card className="border-0 shadow-md bg-slate-600 text-white">
               <CardContent className="p-6">
                 <h3 className="text-lg font-bold mb-2">🚀 Dica de Hoje</h3>
-                <p className="text-sm text-blue-100 mb-4">
+                <p className="text-sm text-slate-200 mb-4">
                   Tente fazer pelo menos 3 perguntas por dia para diferentes disciplinas. 
                   Isso ajuda a manter o aprendizado ativo!
                 </p>
-                <Badge variant="secondary" className="text-education-600">
+                <Badge variant="secondary" className="bg-white text-slate-600">
                   Meta: 3/3 ✓
                 </Badge>
               </CardContent>
