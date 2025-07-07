@@ -27,7 +27,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
       <Avatar className="h-8 w-8 mt-1">
         <AvatarFallback className={cn(
           message.sender === 'user' 
-            ? 'bg-education-500 text-white' 
+            ? 'bg-slate-600 text-white' 
             : 'bg-gray-100 text-gray-700'
         )}>
           {message.sender === 'user' ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
@@ -41,7 +41,7 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         <Card className={cn(
           "p-4 border-0 shadow-sm",
           message.sender === 'user' 
-            ? 'bg-education-500 text-white' 
+            ? 'bg-slate-600 text-white' 
             : 'bg-gray-50 text-gray-900'
         )}>
           <p className="text-sm whitespace-pre-wrap">{message.content}</p>

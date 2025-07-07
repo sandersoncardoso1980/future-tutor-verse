@@ -25,14 +25,14 @@ const SubjectCard = ({ subject }: SubjectCardProps) => {
     <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-105 border-0 shadow-md">
       <CardHeader className="pb-4">
         <div className="flex items-center justify-between">
-          <div className="p-3 rounded-xl bg-education-50 text-education-600 group-hover:bg-education-100 transition-colors">
+          <div className="p-3 rounded-xl bg-slate-100 text-slate-600 group-hover:bg-slate-200 transition-colors">
             {subject.icon}
           </div>
           <Badge variant="secondary" className="text-xs">
             {subject.booksCount} livros
           </Badge>
         </div>
-        <CardTitle className="text-xl font-display">{subject.name}</CardTitle>
+        <CardTitle className="text-xl font-display text-slate-800">{subject.name}</CardTitle>
         <CardDescription className="text-gray-600">
           {subject.description}
         </CardDescription>
@@ -58,7 +58,7 @@ const SubjectCard = ({ subject }: SubjectCardProps) => {
           ))}
         </div>
 
-        <Button asChild className="w-full education-gradient hover:opacity-90 transition-opacity">
+        <Button asChild className="w-full bg-slate-600 hover:bg-slate-700 text-white">
           <Link to={`/chat/${subject.id}`} className="flex items-center space-x-2">
             <BookOpen className="h-4 w-4" />
             <span>Iniciar Conversa</span>
