@@ -47,20 +47,20 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-gray-700">
-            <GraduationCap className="h-10 w-10" />
-            <span className="font-display">EduAI</span>
+          <Link to="/" className="inline-flex items-center space-x-2 text-3xl font-bold text-slate-700">
+            <GraduationCap className="h-10 w-10 text-slate-600" />
+            <span className="font-display text-slate-700">EduAI</span>
           </Link>
-          <p className="text-gray-600 mt-2">Crie sua conta gratuita</p>
+          <p className="text-slate-600 mt-2">Crie sua conta gratuita</p>
         </div>
 
-        <Card className="border-0 shadow-xl">
+        <Card className="border-0 shadow-xl bg-white">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-display">Criar Conta</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-2xl font-display text-slate-800">Criar Conta</CardTitle>
+            <CardDescription className="text-slate-600">
               Junte-se a milhares de estudantes que já revolucionaram seus estudos
             </CardDescription>
           </CardHeader>
@@ -68,54 +68,54 @@ const Register = () => {
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Nome Completo</Label>
+                <Label htmlFor="name" className="text-slate-700">Nome Completo</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <User className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
                     id="name"
                     type="text"
                     placeholder="Seu nome completo"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 border-slate-200 focus:border-slate-400 focus:ring-slate-400 text-slate-800"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-slate-700">Email</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Mail className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
                     id="email"
                     type="email"
                     placeholder="seu@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 border-slate-200 focus:border-slate-400 focus:ring-slate-400 text-slate-800"
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Senha</Label>
+                <Label htmlFor="password" className="text-slate-700">Senha</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
                     id="password"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Mínimo 6 caracteres"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10"
+                    className="pl-10 pr-10 border-slate-200 focus:border-slate-400 focus:ring-slate-400 text-slate-800"
                     required
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-3 text-slate-400 hover:text-slate-600"
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                   </button>
@@ -123,16 +123,16 @@ const Register = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirmar Senha</Label>
+                <Label htmlFor="confirmPassword" className="text-slate-700">Confirmar Senha</Label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
                   <Input
                     id="confirmPassword"
                     type="password"
                     placeholder="Digite a senha novamente"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 border-slate-200 focus:border-slate-400 focus:ring-slate-400 text-slate-800"
                     required
                   />
                 </div>
@@ -140,7 +140,7 @@ const Register = () => {
 
               <Button 
                 type="submit" 
-                className="w-full bg-gray-600 hover:bg-gray-700 text-white transition-colors"
+                className="w-full bg-slate-700 hover:bg-slate-800 text-white transition-colors"
                 disabled={isLoading}
               >
                 {isLoading ? 'Criando conta...' : 'Criar Conta Gratuita'}
@@ -148,21 +148,21 @@ const Register = () => {
             </form>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-600">
                 Já tem uma conta?{' '}
-                <Link to="/login" className="text-gray-600 hover:underline font-medium">
+                <Link to="/login" className="text-slate-700 hover:underline font-medium">
                   Fazer login
                 </Link>
               </p>
             </div>
 
-            <div className="mt-4 text-xs text-center text-gray-500">
+            <div className="mt-4 text-xs text-center text-slate-500">
               Ao criar uma conta, você concorda com nossos{' '}
-              <Link to="/" className="text-gray-600 hover:underline">
+              <Link to="/" className="text-slate-600 hover:underline">
                 Termos de Uso
               </Link>{' '}
               e{' '}
-              <Link to="/" className="text-gray-600 hover:underline">
+              <Link to="/" className="text-slate-600 hover:underline">
                 Política de Privacidade
               </Link>
             </div>
@@ -170,7 +170,7 @@ const Register = () => {
         </Card>
 
         <div className="text-center mt-6">
-          <Link to="/" className="text-sm text-gray-500 hover:text-gray-700">
+          <Link to="/" className="text-sm text-slate-500 hover:text-slate-700">
             ← Voltar para o início
           </Link>
         </div>

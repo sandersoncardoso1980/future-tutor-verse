@@ -15,7 +15,7 @@
     --popover: 255 255 255;
     --popover-foreground: 51 65 85;
 
-    --primary: 100 116 139;
+    --primary: 71 85 105;
     --primary-foreground: 255 255 255;
 
     --secondary: 248 250 252;
@@ -47,7 +47,7 @@
     --popover: 30 41 59;
     --popover-foreground: 248 250 252;
 
-    --primary: 148 163 184;
+    --primary: 100 116 139;
     --primary-foreground: 15 23 42;
 
     --secondary: 51 65 85;
@@ -94,7 +94,7 @@
   }
   
   .chat-bubble-ai {
-    @apply bg-gray-100 text-gray-900 mr-auto;
+    @apply bg-slate-100 text-slate-900 mr-auto;
   }
 
   .gradient-bg {
