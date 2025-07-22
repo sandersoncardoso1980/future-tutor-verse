@@ -52,29 +52,29 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       <Header />
       
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <Badge className="mb-6 px-4 py-2 text-sm font-medium bg-gray-600 text-white">
+          <Badge className="mb-6 px-4 py-2 text-sm font-medium bg-primary text-primary-foreground">
             🚀 Revolução na Educação com IA
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold font-display mb-6 bg-gradient-to-r from-gray-700 to-gray-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold font-display mb-6 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">
             Professores Particulares
             <br />
             <span className="text-4xl md:text-6xl">com Inteligência Artificial</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Aprenda qualquer disciplina com professores virtuais especializados. 
             Cada agente de IA é treinado com livros acadêmicos para dar respostas precisas e citadas.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" asChild className="text-lg px-8 py-6 bg-gray-600 hover:bg-gray-700 text-white">
+            <Button size="lg" asChild className="text-lg px-8 py-6">
               <Link to="/register" className="flex items-center space-x-2">
                 <span>Começar Gratuitamente</span>
                 <ArrowRight className="h-5 w-5" />
@@ -86,13 +86,13 @@ const Index = () => {
             </Button>
           </div>
           
-          <div className="flex items-center justify-center space-x-8 text-sm text-gray-500">
+          <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Users className="h-4 w-4" />
               <span>4.000+ alunos</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Star className="h-4 w-4 fill-gray-400 text-gray-400" />
+              <Star className="h-4 w-4 fill-primary text-primary" />
               <span>4.9/5 avaliação</span>
             </div>
             <div className="flex items-center space-x-2">
@@ -107,10 +107,10 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4 text-gray-800">
+            <h2 className="text-4xl font-bold font-display mb-4 text-foreground">
               Por que escolher a EduAI?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Tecnologia de ponta aliada à educação de qualidade para acelerar seu aprendizado
             </p>
           </div>
@@ -119,13 +119,13 @@ const Index = () => {
             {features.map((feature, index) => (
               <Card key={index} className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow group">
                 <CardHeader>
-                  <div className="mx-auto p-4 rounded-full bg-gray-100 text-gray-600 group-hover:bg-gray-200 transition-colors w-fit">
+                  <div className="mx-auto p-4 rounded-full bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors w-fit">
                     {feature.icon}
                   </div>
-                  <CardTitle className="text-xl font-display text-gray-800">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl font-display">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600">
+                  <CardDescription>
                     {feature.description}
                   </CardDescription>
                 </CardContent>
@@ -136,13 +136,13 @@ const Index = () => {
       </section>
 
       {/* How it Works */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4 text-gray-800">
+            <h2 className="text-4xl font-bold font-display mb-4">
               Como funciona?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-muted-foreground">
               Simples, rápido e eficiente
             </p>
           </div>
@@ -167,11 +167,11 @@ const Index = () => {
                 }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-gray-600 text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold flex items-center justify-center mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-800">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -183,10 +183,10 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4 text-gray-800">
+            <h2 className="text-4xl font-bold font-display mb-4">
               O que nossos alunos dizem
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-muted-foreground">
               Histórias reais de sucesso acadêmico
             </p>
           </div>
@@ -197,7 +197,7 @@ const Index = () => {
                 <CardHeader>
                   <div className="flex items-center space-x-1 mb-2">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gray-400 text-gray-400" />
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                     ))}
                   </div>
                   <CardDescription className="text-base italic">
@@ -206,8 +206,8 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <div>
-                    <p className="font-semibold text-gray-800">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -217,18 +217,18 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-600 text-white">
+      <section className="py-20 gradient-bg text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
               Pronto para revolucionar seus estudos?
             </h2>
-            <p className="text-xl mb-8 text-gray-200">
+            <p className="text-xl mb-8 opacity-90">
               Junte-se a milhares de estudantes que já descobriram uma nova forma de aprender
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6 bg-white text-gray-600 hover:bg-gray-100">
+              <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6">
                 <Link to="/register" className="flex items-center space-x-2">
                   <span>Criar Conta Gratuita</span>
                   <ArrowRight className="h-5 w-5" />
@@ -236,7 +236,7 @@ const Index = () => {
               </Button>
             </div>
             
-            <p className="text-sm text-gray-300 mt-6">
+            <p className="text-sm opacity-75 mt-6">
               ✓ Sem cartão de crédito • ✓ Acesso imediato • ✓ Suporte 24/7
             </p>
           </div>
@@ -244,48 +244,48 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-card border-t py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 text-2xl font-bold mb-4">
-                <BookOpen className="h-8 w-8" />
+                <BookOpen className="h-8 w-8 text-primary" />
                 <span className="font-display">EduAI</span>
               </div>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground">
                 Revolucionando a educação com inteligência artificial.
               </p>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Produto</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/" className="hover:text-white">Disciplinas</Link></li>
-                <li><Link to="/" className="hover:text-white">Professores IA</Link></li>
-                <li><Link to="/" className="hover:text-white">Recursos</Link></li>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link to="/" className="hover:text-foreground">Disciplinas</Link></li>
+                <li><Link to="/" className="hover:text-foreground">Professores IA</Link></li>
+                <li><Link to="/" className="hover:text-foreground">Recursos</Link></li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Empresa</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/" className="hover:text-white">Sobre</Link></li>
-                <li><Link to="/" className="hover:text-white">Blog</Link></li>
-                <li><Link to="/" className="hover:text-white">Carreiras</Link></li>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link to="/" className="hover:text-foreground">Sobre</Link></li>
+                <li><Link to="/" className="hover:text-foreground">Blog</Link></li>
+                <li><Link to="/" className="hover:text-foreground">Carreiras</Link></li>
               </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Suporte</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link to="/" className="hover:text-white">Ajuda</Link></li>
-                <li><Link to="/" className="hover:text-white">Contato</Link></li>
-                <li><Link to="/" className="hover:text-white">Status</Link></li>
+              <ul className="space-y-2 text-muted-foreground">
+                <li><Link to="/" className="hover:text-foreground">Ajuda</Link></li>
+                <li><Link to="/" className="hover:text-foreground">Contato</Link></li>
+                <li><Link to="/" className="hover:text-foreground">Status</Link></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t mt-8 pt-8 text-center text-muted-foreground">
             <p>&copy; 2024 EduAI. Todos os direitos reservados.</p>
           </div>
         </div>
