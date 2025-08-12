@@ -15,6 +15,7 @@ interface ChatMessageProps {
       book: string;
       chapter: string;
     };
+    gifs?: string[];
   };
 }
 
@@ -53,6 +54,21 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
               <BookOpen className="h-3 w-3" />
               <span>{message.source.book} - {message.source.chapter}</span>
             </Badge>
+          </div>
+        )}
+
+        {message.gifs && message.gifs.length > 0 && (
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 w-full">
+            {message.gifs.map((url, idx) => (
+              <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="block">
+                <img
+                  src={url}
+                  alt="GIF educativo relacionado ao tema"
+                  loading="lazy"
+                  className="w-full h-auto rounded-md shadow-sm"
+                />
+              </a>
+            ))}
           </div>
         )}
 

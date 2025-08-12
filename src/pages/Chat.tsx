@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Send, ArrowLeft, BookOpen } from 'lucide-react';
 import { subjects, generateAIResponse } from '@/data/subjects';
 import { toast } from 'sonner';
+import { searchTenorGifs, getRemainingTenorUsage, incrementTenorUsage } from '@/services/tenorService';
 
 interface Message {
   id: string;
@@ -20,6 +21,7 @@ interface Message {
     book: string;
     chapter: string;
   };
+  gifs?: string[];
 }
 
 const Chat = () => {
@@ -88,6 +90,27 @@ const Chat = () => {
         timestamp: new Date(),
         source: aiResponse.source,
       };
+
+      // Se o aluno pedir um modelo visual, buscar GIFs no Tenor (limite 3 por aluno/dia)
+      const isVisualRequest = /\b(gif|imagem|visual|modelo visual|me mostre|me mostra|mostra|exemplo visual)\b/i.test(inputMessage);
+      if (isVisualRequest && user) {
+        const remaining = getRemainingTenorUsage(user.id, 3);
+        if (remaining <= 0) {
+          toast.info('Limite diário de 3 GIFs atingido.');
+        } else {
+          try {
+            const maxToFetch = Math.min(3, remaining);
+            const query = `${subject.name} ${inputMessage}`;
+            const gifs = await searchTenorGifs(query, maxToFetch);
+            if (gifs.length > 0) {
+              aiMessage.gifs = gifs;
+              incrementTenorUsage(user.id, gifs.length);
+            }
+          } catch (err) {
+            console.error('Erro ao buscar GIFs no Tenor:', err);
+          }
+        }
+      }
 
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
