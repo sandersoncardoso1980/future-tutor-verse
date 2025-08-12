@@ -16,6 +16,7 @@ interface ChatMessageProps {
       chapter: string;
     };
     gifs?: string[];
+    videos?: { id: string; title: string; url: string; thumbnail: string }[];
   };
 }
 
@@ -67,6 +68,22 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
                   loading="lazy"
                   className="w-full h-auto rounded-md shadow-sm"
                 />
+              </a>
+            ))}
+          </div>
+        )}
+
+        {message.videos && message.videos.length > 0 && (
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 w-full">
+            {message.videos.map((v) => (
+              <a key={v.id} href={v.url} target="_blank" rel="noopener noreferrer" className="block group">
+                <img
+                  src={v.thumbnail}
+                  alt={`Vídeo educativo: ${v.title}`}
+                  loading="lazy"
+                  className="w-full h-auto rounded-md shadow-sm"
+                />
+                <p className="mt-1 text-xs text-gray-600 group-hover:underline truncate">{v.title}</p>
               </a>
             ))}
           </div>

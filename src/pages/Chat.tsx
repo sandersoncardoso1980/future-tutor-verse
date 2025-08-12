@@ -11,6 +11,7 @@ import { Send, ArrowLeft, BookOpen } from 'lucide-react';
 import { subjects, generateAIResponse } from '@/data/subjects';
 import { toast } from 'sonner';
 import { searchTenorGifs, getRemainingTenorUsage, incrementTenorUsage } from '@/services/tenorService';
+import { searchYouTubeVideos, getYouTubeApiKey, setYouTubeApiKey, YouTubeVideo } from '@/services/youtubeService';
 
 interface Message {
   id: string;
@@ -22,6 +23,7 @@ interface Message {
     chapter: string;
   };
   gifs?: string[];
+  videos?: YouTubeVideo[];
 }
 
 const Chat = () => {
@@ -32,6 +34,16 @@ const Chat = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [ytKeyPresent, setYtKeyPresent] = useState<boolean>(!!getYouTubeApiKey());
+
+  const handleConfigureYouTube = () => {
+    const key = window.prompt('Insira sua YouTube Data API Key (v3):');
+    if (key) {
+      setYouTubeApiKey(key);
+      setYtKeyPresent(true);
+      toast.success('YouTube API conectada.');
+    }
+  };
 
   const subject = subjects.find(s => s.id === subjectId);
 
@@ -109,6 +121,21 @@ const Chat = () => {
           } catch (err) {
             console.error('Erro ao buscar GIFs no Tenor:', err);
           }
+        }
+      }
+
+      // Se o aluno pedir vídeos, buscar no YouTube
+      const isVideoRequest = /\b(vídeo|video|youtube|ver vídeo|ver video|assistir|exemplo em vídeo|exemplo em video)\b/i.test(inputMessage);
+      if (isVideoRequest) {
+        try {
+          const videos = await searchYouTubeVideos(`${subject.name} ${inputMessage}`, 3);
+          if (videos.length > 0) {
+            (aiMessage as any).videos = videos;
+          } else if (!getYouTubeApiKey()) {
+            toast.message('Conecte sua chave da YouTube API para ver vídeos.');
+          }
+        } catch (err) {
+          console.error('Erro ao buscar vídeos no YouTube:', err);
         }
       }
 
@@ -235,8 +262,11 @@ const Chat = () => {
             <span>
               Pressione Enter para enviar, Shift + Enter para nova linha
             </span>
-            <span>
-              Powered by Gemini AI • {subject.booksCount} livros acadêmicos
+            <span className="flex items-center gap-2">
+              <span>Powered by Gemini AI • {subject.booksCount} livros acadêmicos</span>
+              <span>• YouTube: {ytKeyPresent ? 'conectado' : (
+                <button onClick={handleConfigureYouTube} className="underline">conectar</button>
+              )}</span>
             </span>
           </div>
         </div>
