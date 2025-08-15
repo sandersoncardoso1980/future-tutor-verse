@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import SubjectCard from '@/components/SubjectCard';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, MessageCircle, Clock, Trophy } from 'lucide-react';
+import { BookOpen, MessageCircle, Clock, Trophy, Book } from 'lucide-react';
 import { subjects } from '@/data/subjects';
 
 const Dashboard = () => {
@@ -99,6 +99,69 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card 
+            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-0 shadow-md"
+            onClick={() => navigate('/chatbot')}
+          >
+            <CardContent className="p-6 text-center">
+              <div className="p-4 rounded-full bg-primary/10 text-primary w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <MessageCircle className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">ChatBot</h3>
+              <p className="text-sm text-muted-foreground">
+                Converse com professores IA especializados
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card 
+            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-0 shadow-md"
+            onClick={() => navigate('/exercises')}
+          >
+            <CardContent className="p-6 text-center">
+              <div className="p-4 rounded-full bg-secondary/10 text-secondary w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <BookOpen className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">Exercícios</h3>
+              <p className="text-sm text-muted-foreground">
+                Pratique com exercícios personalizados
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card 
+            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-0 shadow-md"
+            onClick={() => navigate('/ebooks')}
+          >
+            <CardContent className="p-6 text-center">
+            <div className="p-4 rounded-full bg-accent/10 text-accent w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+              <Book className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">E-Books</h3>
+              <p className="text-sm text-muted-foreground">
+                Acesse nossa biblioteca digital
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card 
+            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-0 shadow-md"
+            onClick={() => navigate('/achievements')}
+          >
+            <CardContent className="p-6 text-center">
+              <div className="p-4 rounded-full bg-primary/10 text-primary w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Trophy className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold mb-2">Minhas Conquistas</h3>
+              <p className="text-sm text-muted-foreground">
+                Acompanhe seu progresso e conquistas
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">

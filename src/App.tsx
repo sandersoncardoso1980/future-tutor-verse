@@ -10,6 +10,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Chat from "./pages/Chat";
+import ChatBot from "./pages/ChatBot";
+import Exercises from "./pages/Exercises";
+import EBooks from "./pages/EBooks";
+import Achievements from "./pages/Achievements";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +32,10 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/chat/:subject?" element={<Chat />} />
+            <Route path="/chatbot" element={<ChatBot />} />
+            <Route path="/exercises" element={<Exercises />} />
+            <Route path="/ebooks" element={<EBooks />} />
+            <Route path="/achievements" element={<Achievements />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
