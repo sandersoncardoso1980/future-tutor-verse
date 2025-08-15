@@ -84,7 +84,7 @@ const Achievements = () => {
       case 'comum': return 'bg-gray-500';
       case 'raro': return 'bg-blue-500';
       case 'épico': return 'bg-purple-500';
-      case 'lendário': return 'bg-yellow-500';
+      case 'lendário': return 'bg-gray-600';
       default: return 'bg-gray-500';
     }
   };
