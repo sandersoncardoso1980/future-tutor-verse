@@ -3,38 +3,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system com paleta moderna para plataforma educacional */
+/* Design system vibrante para crianças e adolescentes - Azul & Verde */
 @layer base {
   :root {
-    --background: 248 250 252;
-    --foreground: 30 41 59;
+    /* Background com gradiente suave azul-verde */
+    --background: 200 100% 98%;
+    --foreground: 220 15% 20%;
 
-    --card: 255 255 255;
-    --card-foreground: 30 41 59;
+    --card: 210 100% 99%;
+    --card-foreground: 220 15% 25%;
 
-    --popover: 255 255 255;
-    --popover-foreground: 30 41 59;
+    --popover: 210 100% 99%;
+    --popover-foreground: 220 15% 25%;
 
-    --primary: 139 92 246;
-    --primary-foreground: 255 255 255;
+    /* Azul vibrante como cor primária */
+    --primary: 210 100% 60%;
+    --primary-foreground: 210 100% 98%;
+    --primary-glow: 210 100% 75%;
 
-    --secondary: 232 121 249;
-    --secondary-foreground: 255 255 255;
+    /* Verde como cor secundária */
+    --secondary: 150 80% 45%;
+    --secondary-foreground: 150 80% 98%;
+    --secondary-glow: 150 80% 65%;
 
-    --muted: 241 245 249;
-    --muted-foreground: 100 116 139;
+    /* Tons neutros suaves */
+    --muted: 210 60% 96%;
+    --muted-foreground: 220 15% 50%;
 
-    --accent: 59 130 246;
-    --accent-foreground: 255 255 255;
+    /* Accent em azul turquesa */
+    --accent: 180 100% 50%;
+    --accent-foreground: 180 100% 98%;
 
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
+    --destructive: 350 85% 60%;
+    --destructive-foreground: 350 85% 98%;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 139 92 246;
+    --border: 210 30% 88%;
+    --input: 210 30% 92%;
+    --ring: 210 100% 60%;
 
-    --radius: 1rem;
+    --radius: 1.5rem;
+
+    /* Gradientes especiais */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    
+    /* Sombras coloridas */
+    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-secondary: 0 10px 30px -10px hsl(var(--secondary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
   }
   /* Para sobrescrever o autofill do navegador */
 input:-webkit-autofill,
@@ -47,33 +65,42 @@ input:-webkit-autofill:active {
 }
 
   .dark {
-    --background: 15 23 42;
-    --foreground: 241 245 249;
+    /* Dark mode com azul e verde mais escuros */
+    --background: 220 30% 8%;
+    --foreground: 210 100% 95%;
 
-    --card: 30 41 59;
-    --card-foreground: 241 245 249;
+    --card: 220 25% 12%;
+    --card-foreground: 210 100% 95%;
 
-    --popover: 30 41 59;
-    --popover-foreground: 241 245 249;
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 100% 95%;
 
-    --primary: 168 85 247;
-    --primary-foreground: 255 255 255;
+    --primary: 210 100% 65%;
+    --primary-foreground: 220 30% 8%;
+    --primary-glow: 210 100% 80%;
 
-    --secondary: 196 48 245;
-    --secondary-foreground: 255 255 255;
+    --secondary: 150 70% 50%;
+    --secondary-foreground: 220 30% 8%;
+    --secondary-glow: 150 70% 70%;
 
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
+    --muted: 220 20% 18%;
+    --muted-foreground: 210 30% 70%;
 
-    --accent: 99 102 241;
-    --accent-foreground: 255 255 255;
+    --accent: 180 100% 55%;
+    --accent-foreground: 220 30% 8%;
 
-    --destructive: 248 113 113;
-    --destructive-foreground: 255 255 255;
+    --destructive: 350 85% 65%;
+    --destructive-foreground: 220 30% 8%;
 
-    --border: 71 85 105;
-    --input: 71 85 105;
-    --ring: 168 85 247;
+    --border: 220 20% 25%;
+    --input: 220 20% 25%;
+    --ring: 210 100% 65%;
+
+    /* Gradientes para dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.2));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
   }
 }
 
@@ -92,29 +119,82 @@ input:-webkit-autofill:active {
   }
 }
 
-/* Estilos personalizados para chat */
+/* Componentes vibrantes para crianças */
 @layer components {
   .chat-bubble {
-    @apply rounded-2xl px-4 py-3 max-w-[80%] break-words;
+    @apply rounded-2xl px-4 py-3 max-w-[80%] break-words shadow-lg;
   }
   
   .chat-bubble-user {
     @apply bg-primary text-primary-foreground ml-auto;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-primary);
   }
   
   .chat-bubble-ai {
-    @apply bg-muted text-foreground mr-auto;
+    @apply bg-secondary text-secondary-foreground mr-auto;
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-secondary);
   }
 
   .gradient-bg {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+    background: var(--gradient-hero);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .primary-gradient {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .secondary-gradient {
+    background: var(--gradient-secondary);
+    box-shadow: var(--shadow-secondary);
+  }
+
+  .fun-card {
+    @apply rounded-3xl p-6 transition-all duration-300 hover:scale-105;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .fun-button {
+    @apply rounded-2xl px-6 py-3 font-bold transition-all duration-300 hover:scale-105;
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-primary);
+  }
+
+  .fun-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 15px 40px -15px hsl(var(--primary) / 0.4);
   }
 }
 
-/* Animações suaves */
+/* Animações divertidas para crianças */
 @layer utilities {
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-bounce-soft {
+    animation: bounce-soft 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 1s ease-in-out infinite;
   }
 
   @keyframes float {
@@ -124,5 +204,44 @@ input:-webkit-autofill:active {
     50% {
       transform: translateY(-20px);
     }
+  }
+
+  @keyframes bounce-soft {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+  }
+
+  @keyframes wiggle {
+    0%, 7%, 14%, 21% {
+      transform: rotate(0deg);
+    }
+    3.5% {
+      transform: rotate(-2deg);
+    }
+    10.5%, 17.5% {
+      transform: rotate(2deg);
+    }
+  }
+
+  .hover-bounce:hover {
+    animation: bounce-soft 0.6s ease-in-out;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+    transition: box-shadow 0.3s ease;
   }
 }
