@@ -67,52 +67,52 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-secondary/5">
       <Header />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6 sm:py-8">
         {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold font-display mb-2 text-slate-800">
-            Olá, {user.name}! 👋
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold font-display mb-2 text-foreground">
+            Olá, {user.name || user.email}! 👋
           </h1>
-          <p className="text-gray-600">
+          <p className="text-foreground/70 font-medium">
             Bem-vindo de volta! Vamos continuar seus estudos?
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {stats.map((stat, index) => (
-            <Card key={index} className="border-0 shadow-md bg-white">
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="p-2 rounded-lg bg-slate-100 text-slate-600">
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <div className="p-2 sm:p-3 rounded-xl bg-primary/10 text-primary w-fit mb-2 sm:mb-0 shadow-lg">
                     {stat.icon}
                   </div>
-                  <Badge variant="secondary" className="text-xs bg-gray-100 text-gray-700">
+                  <Badge variant="secondary" className="text-xs font-medium w-fit">
                     {stat.change}
                   </Badge>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800">{stat.value}</h3>
-                <p className="text-sm text-gray-600">{stat.label}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">{stat.value}</h3>
+                <p className="text-xs sm:text-sm text-foreground/70 font-medium">{stat.label}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
           <Card 
-            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-0 shadow-md"
+            className="cursor-pointer hover:shadow-lg transition-all duration-300 border-0 shadow-md hover:scale-105"
             onClick={() => navigate('/chatbot')}
           >
-            <CardContent className="p-6 text-center">
-              <div className="p-4 rounded-full bg-primary/10 text-primary w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <MessageCircle className="h-8 w-8" />
+            <CardContent className="p-4 sm:p-6 text-center">
+              <div className="p-3 sm:p-4 rounded-full bg-primary/10 text-primary w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+                <MessageCircle className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
-              <h3 className="text-lg font-bold mb-2">ChatBot</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">ChatBot</h3>
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 Converse com professores IA especializados
               </p>
             </CardContent>
@@ -164,13 +164,13 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Available Subjects */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold font-display mb-6 text-slate-800">
-              Professores Disponíveis
+            <h2 className="text-xl sm:text-2xl font-bold font-display mb-4 sm:mb-6 text-foreground">
+              🎓 Professores Disponíveis
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               {subjects.map((subject) => (
                 <SubjectCard key={subject.id} subject={subject} />
               ))}

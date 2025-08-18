@@ -62,31 +62,31 @@ const Index = () => {
             🚀 Revolução na Educação com IA
           </Badge>
           
-          <h1 className="text-5xl md:text-7xl font-bold font-display mb-6 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display mb-6 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">
             Professores Particulares
             <br />
-            <span className="text-4xl md:text-6xl">com Inteligência Artificial</span>
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">com Inteligência Artificial</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed px-4">
             Aprenda qualquer disciplina com professores virtuais especializados. 
             Cada agente de IA é treinado com livros acadêmicos para dar respostas precisas e citadas.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" asChild className="text-lg px-8 py-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
+            <Button size="lg" asChild className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6">
               <Link to="/register" className="flex items-center space-x-2">
                 <span>Começar Gratuitamente</span>
-                <ArrowRight className="h-5 w-5" />
+                <ArrowRight className="h-4 sm:h-5 w-4 sm:w-5" />
               </Link>
             </Button>
             
-            <Button size="lg" variant="outline" asChild className="text-lg px-8 py-6">
+            <Button size="lg" variant="outline" asChild className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6">
               <Link to="/login">Já tenho conta</Link>
             </Button>
           </div>
           
-          <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm text-muted-foreground">
             <div className="flex items-center space-x-2">
               <Users className="h-4 w-4" />
               <span>4.000+ alunos</span>
@@ -115,17 +115,17 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="text-center border-0 shadow-lg hover:shadow-xl transition-shadow group">
-                <CardHeader>
+                <CardHeader className="pb-4">
                   <div className="mx-auto p-4 rounded-full bg-accent text-accent-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors w-fit">
                     {feature.icon}
                   </div>
-                  <CardTitle className="text-xl font-display">{feature.title}</CardTitle>
+                  <CardTitle className="text-lg sm:text-xl font-display">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription>
+                  <CardDescription className="text-sm sm:text-base">
                     {feature.description}
                   </CardDescription>
                 </CardContent>
@@ -148,7 +148,7 @@ const Index = () => {
           </div>
           
           <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
                   step: '1',
@@ -202,7 +202,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="border-0 shadow-lg">
                 <CardHeader>
@@ -228,18 +228,19 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-bg text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary-glow opacity-90"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6 text-primary-foreground drop-shadow-lg">
               Pronto para revolucionar seus estudos?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-lg md:text-xl mb-8 text-primary-foreground/95 drop-shadow-md">
               Junte-se a milhares de estudantes que já descobriram uma nova forma de aprender
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6">
+              <Button size="lg" variant="secondary" asChild className="text-lg px-8 py-6 font-bold shadow-xl">
                 <Link to="/register" className="flex items-center space-x-2">
                   <span>Criar Conta Gratuita</span>
                   <ArrowRight className="h-5 w-5" />
@@ -247,7 +248,7 @@ const Index = () => {
               </Button>
             </div>
             
-            <p className="text-sm opacity-75 mt-6">
+            <p className="text-sm text-primary-foreground/90 mt-6 drop-shadow-sm">
               ✓ Sem cartão de crédito • ✓ Acesso imediato • ✓ Suporte 24/7
             </p>
           </div>
