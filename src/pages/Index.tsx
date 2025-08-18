@@ -136,10 +136,10 @@ const Index = () => {
       </section>
 
       {/* How it Works */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 bg-gradient-to-br from-accent/10 via-background to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-display mb-4">
+            <h2 className="text-4xl font-bold font-display mb-4 text-foreground">
               Como funciona?
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -167,14 +167,25 @@ const Index = () => {
                 }
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground text-2xl font-bold flex items-center justify-center mx-auto mb-4 hover:scale-110 transition-transform duration-300 shadow-lg">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">{item.title}</h3>
+                  <p className="text-foreground/70">{item.description}</p>
                 </div>
               ))}
             </div>
+          </div>
+          
+          {/* Adicionando botão para experimentar */}
+          <div className="text-center mt-12">
+            <Button size="lg" asChild className="text-lg px-8 py-6 animate-pulse-glow">
+              <Link to="/register" className="flex items-center space-x-2">
+                <Bot className="h-5 w-5" />
+                <span>Experimentar Agora</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

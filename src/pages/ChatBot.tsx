@@ -76,57 +76,73 @@ const ChatBot = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-secondary/5">
       <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold font-display mb-2 text-foreground">
-            ChatBot Educacional 🤖
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl font-bold font-display mb-4 text-foreground">
+            🤖 ChatBot Educacional
           </h1>
-          <p className="text-muted-foreground">
-            Converse com nossos professores virtuais especializados
+          <p className="text-lg text-foreground/80 font-medium">
+            Converse com nossos professores virtuais especializados!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-4 gap-6 mb-8">
-          <Card>
+          <Card className="hover:scale-105 transition-transform hover-glow">
             <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Bot className="h-5 w-5 text-primary" />
-                <span className="text-2xl font-bold">6</span>
+              <div className="flex items-center space-x-3">
+                <div className="p-3 rounded-full bg-primary/20 shadow-lg">
+                  <Bot className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <p className="text-3xl font-bold text-foreground">6</p>
+                  <p className="text-sm text-foreground/70 font-medium">Professores IA</p>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">Professores IA</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="hover:scale-105 transition-transform hover-glow">
             <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <MessageCircle className="h-5 w-5 text-primary" />
-                <span className="text-2xl font-bold">1.2k</span>
+              <div className="flex items-center space-x-3">
+                <div className="p-3 rounded-full bg-secondary/20 shadow-lg">
+                  <MessageCircle className="h-8 w-8 text-secondary" />
+                </div>
+                <div>
+                  <p className="text-3xl font-bold text-foreground">1.2k</p>
+                  <p className="text-sm text-foreground/70 font-medium">Conversas Hoje</p>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">Conversas Hoje</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="hover:scale-105 transition-transform hover-glow">
             <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Clock className="h-5 w-5 text-primary" />
-                <span className="text-2xl font-bold">&lt; 1min</span>
+              <div className="flex items-center space-x-3">
+                <div className="p-3 rounded-full bg-accent/20 shadow-lg">
+                  <Clock className="h-8 w-8 text-accent" />
+                </div>
+                <div>
+                  <p className="text-3xl font-bold text-foreground">&lt; 1min</p>
+                  <p className="text-sm text-foreground/70 font-medium">Tempo de Resposta</p>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">Tempo de Resposta</p>
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="hover:scale-105 transition-transform hover-glow">
             <CardContent className="p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Star className="h-5 w-5 text-primary" />
-                <span className="text-2xl font-bold">4.9</span>
+              <div className="flex items-center space-x-3">
+                <div className="p-3 rounded-full bg-primary/20 shadow-lg">
+                  <Star className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <p className="text-3xl font-bold text-foreground">4.9</p>
+                  <p className="text-sm text-foreground/70 font-medium">Avaliação Média</p>
+                </div>
               </div>
-              <p className="text-sm text-muted-foreground">Avaliação Média</p>
             </CardContent>
           </Card>
         </div>
@@ -159,10 +175,13 @@ const ChatBot = () => {
                 </div>
                 
                 <Button 
-                  className="w-full" 
-                  onClick={() => navigate(`/chat/${professor.subject}`)}
+                  className="w-full font-semibold text-lg py-6 hover:scale-105 transition-transform" 
+                  onClick={() => {
+                    console.log('Navegando para chat:', professor.subject);
+                    navigate(`/chat/${professor.subject}`);
+                  }}
                 >
-                  <MessageCircle className="h-4 w-4 mr-2" />
+                  <MessageCircle className="h-5 w-5 mr-2" />
                   Iniciar Conversa
                 </Button>
               </CardContent>
